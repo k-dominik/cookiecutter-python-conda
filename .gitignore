@@ -1,0 +1,14 @@
+# Ignore Python build artifacts.
+*.egg-info/
+*.py[cdo]
+
+# Ignore IDE stuff
+.idea/
+.project/
+.pydevproject/
+.vscode/
+*.code-workspace
+*.sublime-project
+*.sublime-workspace
+
+.DS_Store
