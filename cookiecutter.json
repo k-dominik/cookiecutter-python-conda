@@ -1,0 +1,11 @@
+{
+  "author_name": "author name",
+  "author_email": "author email address",
+  "github_username": "Destination github org or username",
+  "repo_name": "repository_name",
+  "package_name": "{{ cookiecutter.repo_name.lower() }}",
+  "project_short_description": "Short description",
+  "project_initial_version": "0.1.0",
+  "want_ci": "Do you want Travis CI integration? [y]/n",
+  "want_black": "Do you want to use black for code formatting? [y]/n"
+}
