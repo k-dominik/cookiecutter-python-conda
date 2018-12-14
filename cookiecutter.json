@@ -6,6 +6,7 @@
   "package_name": "{{ cookiecutter.repo_name.lower() }}",
   "project_short_description": "Short description",
   "project_initial_version": "0.1.0",
-  "want_ci": "Do you want Travis CI integration? [y]/n",
-  "want_black": "Do you want to use black for code formatting? [y]/n"
+  "use_ci": "Do you want Travis CI integration? [y]/n",
+  "use_black": "Do you want to use black for code formatting? [y]/n",
+  "use_bumpversion": "Do you want to use bumpversion? [y]/n"
 }
