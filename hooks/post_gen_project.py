@@ -3,7 +3,7 @@ import os
 
 
 def remove_black():
-    os.remove(".pre-commit")
+    os.remove(".pre-commit-config.yaml")
 
 
 def remove_ci():
