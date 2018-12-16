@@ -13,37 +13,42 @@ def test_cookiecutter_default(cookies):
 
     assert result.exit_code == 0
     assert result.exception is None
-    assert result.project.basename == 'repository_name'
-    assert result.project.isdir()
-
-
-@pytest.fixture
-def context_all_no():
-    return {
-        "author_name": "the name",
-        "author_email": "the.name@the_mail.com",
-        "github_username": "thegithubuser",
-        "repo_name": "Repo_Name",
-        "project_initial_version": "10.1.99",
-        "use_ci": "n",
-        "use_black": "n",
-        "use_bumpversion": "n"
-    }
-
-
-def test_cookiecutter_all_no(cookies, context_all_no):
-    result = cookies.bake(extra_context=context_all_no)
-
-    assert result.exit_code == 0
-    assert result.exception is None
-    assert result.project.basename == 'repo_name'
+    assert result.project.basename == "repository_name"
     assert result.project.isdir()
 
     repo_files = os.listdir(result.project)
-    files_should_be_gone = [
-        '.bumpversion.cfg',
-        '.travis.yaml',
-        '.pre-commit-config.yaml'
-    ]
-    for fname in files_should_be_gone:
+
+    extra_files = [".pre-commit-config.yaml", ".travis.yml", ".bumpversion.cfg"]
+
+    for fname in extra_files:
+        assert fname in repo_files
+
+
+@pytest.mark.parametrize(
+    "context, gone_files",
+    [
+        ({"use_black": "n"}, [".pre-commit-config.yaml"]),
+        ({"use_ci": "n"}, [".travis.yml"]),
+        ({"use_bumpversion": "n"}, [".bumpversion.cfg"]),
+        ({"use_bumpversion": "n", "use_ci": "n"}, [".bumpversion.cfg", ".travis.yml"]),
+        (
+            {"use_bumpversion": "n", "use_black": "n"},
+            [".bumpversion.cfg", ".pre-commit-config.yaml"],
+        ),
+        ({"use_black": "n", "use_ci": "n"}, [".pre-commit-config.yaml", ".travis.yml"]),
+        (
+            {"use_bumpversion": "n", "use_black": "n", "use_ci": "n"},
+            [".bumpversion.cfg", ".pre-commit-config.yaml", ".travis.yml"],
+        ),
+    ],
+)
+def test_post_gen(cookies, context, gone_files):
+    result = cookies.bake(extra_context=context)
+
+    assert result.exit_code == 0
+    assert result.exception is None
+    assert result.project.isdir()
+
+    repo_files = os.listdir(result.project)
+    for fname in gone_files:
         assert fname not in repo_files
