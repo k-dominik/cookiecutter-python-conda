@@ -1,0 +1,43 @@
+{# raw is for ignoring templating with cookiecutter, leaving it for use with conda-build #}
+{% raw -%}
+{% set data = load_setup_py_data() %}
+{%- endraw %}
+
+package:
+  name: {{ cookiecutter.package_name }}
+  {% raw -%}
+  version: {{ data['version'] }}
+  {%- endraw %}
+
+source:
+  path: ..
+
+build:
+  script: python -m pip install --no-deps --ignore-installed .
+
+requirements:
+  build:
+    - python
+    - pip
+  run:
+    - python
+    {% raw -%}
+    # dependencies are defined in setup.py
+    {% for dep in data['install_requires'] %}
+    - {{ dep.lower() }}
+    {% endfor %}
+    {%- endraw %}
+
+test:
+  imports:
+    - {{ cookiecutter.package_name }}
+  source_files:
+    - tests
+  requires:
+    - pytest
+  commands:
+    - pytest tests
+
+about:
+  home: TODO
+  summary: TODO
