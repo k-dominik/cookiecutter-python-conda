@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/k-dominik/cookiecutter-python-conda.svg?branch=master)](https://travis-ci.org/k-dominik/cookiecutter-python-conda)
+
 # Python cookiecutter for conda-based projects
 
 A [cookiecutter](https://www.github.com/audreyr/cookiecutter "cookiecutter") template for conda-based Python projects
