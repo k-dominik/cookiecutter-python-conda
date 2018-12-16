@@ -12,9 +12,7 @@ before_install:
   - conda config --set anaconda_upload no
 
 install:
-  - conda install -q python=$TRAVIS_PYTHON_VERSION conda-build pip anaconda-client 
-  - conda build conda-recipe
-  - conda create -n test-env --file dev/environment-dev.yaml --use-local cookiecutter-python-conda
+  - conda env create -n test-env --file dev/environment-dev.yaml
 
 script:
   - source activate test-env
