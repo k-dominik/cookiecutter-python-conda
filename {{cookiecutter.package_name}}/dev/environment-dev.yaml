@@ -10,5 +10,5 @@ dependencies:
 {% if cookiecutter.use_bumpversion != 'n' %}
   - bumpversion
 {% endif %}
-
+  - pytest
 
