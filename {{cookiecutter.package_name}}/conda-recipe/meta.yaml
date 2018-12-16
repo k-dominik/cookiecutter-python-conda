@@ -40,4 +40,4 @@ test:
 
 about:
   home: TODO
-  summary: TODO
+  summary: {{ cookiecutter.project_short_description }}
