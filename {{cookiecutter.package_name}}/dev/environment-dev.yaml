@@ -1,0 +1,14 @@
+name: {{ cookiecutter.package_name }}
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+{% if cookiecutter.use_black != 'n' %}
+  - black
+  - pre_commit
+{% endif %}
+{% if cookiecutter.use_bumpversion != 'n' %}
+  - bumpversion
+{% endif %}
+
+
