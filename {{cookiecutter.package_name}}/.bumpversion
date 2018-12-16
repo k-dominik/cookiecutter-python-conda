@@ -4,3 +4,4 @@ commit = False
 tag = False
 
 [bumpversion:file:setup.py]
+[bumpversion:file:src/{{ cookiecutter.package_name }}/__init__.py]

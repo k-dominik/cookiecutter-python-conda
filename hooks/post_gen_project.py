@@ -21,7 +21,7 @@ def main():
     if "{{ cookiecutter.use_ci }}".lower() == 'n':
         remove_ci()
     if "{{ cookiecutter.use_bumpversion }}".lower() == 'n':
-        remove_black()
+        remove_versioning()
 
     print("project initialized!")
 
