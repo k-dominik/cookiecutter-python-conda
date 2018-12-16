@@ -51,3 +51,11 @@ There are two different types of dependencies:
 
 1) Package dependencies for deployment: These dependencies should be added to your project's `setup.py` under the requirements section. These packages are automatically added to the conda recipe in `conda-recipe/meta.yaml`. 
 2) Development dependencies: All packages that are needed for development, should be added to your package's `dev/environment-dev.yaml`.
+
+
+# Todos:
+
+ - [ ] write bumpversion notes
+ - [ ] make script with entrypoint optional/configurable
+ - [ ] Travis CI
+ 
