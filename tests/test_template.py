@@ -13,7 +13,7 @@ def test_cookiecutter_default(cookies):
 
     assert result.exit_code == 0
     assert result.exception is None
-    assert result.project.basename == "repository_name"
+    assert result.project.basename == "name-of-the-project"
     assert result.project.isdir()
 
     repo_files = os.listdir(result.project)
