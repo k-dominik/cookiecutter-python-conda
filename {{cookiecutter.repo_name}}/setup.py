@@ -9,6 +9,7 @@ setup(
     description="{{ cookiecutter.project_short_description }}",
     # long_description=description,
     # url='https://...',
+    package_dir={"": "src"},
     packages=find_packages("./src"),
     include_package_data=True,
     install_requires=[
