@@ -18,7 +18,7 @@ def test_cookiecutter_default(cookies):
 
     repo_files = os.listdir(result.project)
 
-    extra_files = [".pre-commit-config.yaml", ".travis.yml", ".bumpversion.cfg"]
+    extra_files = [".pre-commit-config.yaml", ".travis.yml", ".bumpversion.cfg", ".gitignore"]
 
     for fname in extra_files:
         assert fname in repo_files
