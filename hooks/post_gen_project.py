@@ -15,16 +15,16 @@ def remove_versioning():
 
 
 def main():
-    print('removing unnecessary files...')
-    if "{{ cookiecutter.use_black }}".lower() == 'n':
+    print("removing unnecessary files...")
+    if "{{ cookiecutter.use_black }}".lower() == "n":
         remove_black()
-    if "{{ cookiecutter.use_ci }}".lower() == 'n':
+    if "{{ cookiecutter.use_ci }}".lower() == "n":
         remove_ci()
-    if "{{ cookiecutter.use_bumpversion }}".lower() == 'n':
+    if "{{ cookiecutter.use_bumpversion }}".lower() == "n":
         remove_versioning()
 
     print("project initialized!")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

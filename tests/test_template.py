@@ -18,7 +18,7 @@ def test_cookiecutter_default(cookies):
 
     repo_files = os.listdir(result.project)
 
-    extra_files = [".pre-commit-config.yaml", ".travis.yml", ".bumpversion.cfg"]
+    extra_files = [".pre-commit-config.yaml", ".travis.yml", ".bumpversion.cfg", "pyproject.toml"]
 
     for fname in extra_files:
         assert fname in repo_files
@@ -31,10 +31,7 @@ def test_cookiecutter_default(cookies):
         ({"use_ci": "n"}, [".travis.yml"]),
         ({"use_bumpversion": "n"}, [".bumpversion.cfg"]),
         ({"use_bumpversion": "n", "use_ci": "n"}, [".bumpversion.cfg", ".travis.yml"]),
-        (
-            {"use_bumpversion": "n", "use_black": "n"},
-            [".bumpversion.cfg", ".pre-commit-config.yaml"],
-        ),
+        ({"use_bumpversion": "n", "use_black": "n"}, [".bumpversion.cfg", ".pre-commit-config.yaml"]),
         ({"use_black": "n", "use_ci": "n"}, [".pre-commit-config.yaml", ".travis.yml"]),
         (
             {"use_bumpversion": "n", "use_black": "n", "use_ci": "n"},
