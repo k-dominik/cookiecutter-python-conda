@@ -20,7 +20,6 @@ def test_cookiecutter_default(cookies):
 
     extra_files = [
         ".pre-commit-config.yaml",
-        ".travis.yml",
         ".bumpversion.cfg",
         ".gitignore",
         "pyproject.toml",
@@ -35,14 +34,14 @@ def test_cookiecutter_default(cookies):
     "context, gone_files",
     [
         ({"use_black": "n"}, [".pre-commit-config.yaml"]),
-        ({"use_ci": "n"}, [".travis.yml"]),
+        ({"use_ci": "n"}, []),
         ({"use_bumpversion": "n"}, [".bumpversion.cfg"]),
-        ({"use_bumpversion": "n", "use_ci": "n"}, [".bumpversion.cfg", ".travis.yml"]),
+        ({"use_bumpversion": "n", "use_ci": "n"}, [".bumpversion.cfg"]),
         ({"use_bumpversion": "n", "use_black": "n"}, [".bumpversion.cfg", ".pre-commit-config.yaml"]),
-        ({"use_black": "n", "use_ci": "n"}, [".pre-commit-config.yaml", ".travis.yml"]),
+        ({"use_black": "n", "use_ci": "n"}, [".pre-commit-config.yaml"]),
         (
             {"use_bumpversion": "n", "use_black": "n", "use_ci": "n"},
-            [".bumpversion.cfg", ".pre-commit-config.yaml", ".travis.yml"],
+            [".bumpversion.cfg", ".pre-commit-config.yaml"],
         ),
     ],
 )
