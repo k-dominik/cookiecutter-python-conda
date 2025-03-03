@@ -21,8 +21,6 @@ jobs:
           activate-environment: "cookiecutter-python-conda"
           channel-priority: strict
           miniforge-variant: Miniforge3
-      - name: install common dependencies
-        run: conda env create -n test-env --file dev/environment-dev.yaml
       - name: linux test
         if: matrix.os == 'ubuntu-latest'
         shell: bash -l {0}
