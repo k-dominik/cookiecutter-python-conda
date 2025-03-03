@@ -1,6 +1,5 @@
 name: {{ cookiecutter.package_name }}
 channels:
-  - defaults
   - conda-forge
 dependencies:
 {% if cookiecutter.use_black != 'n' %}
