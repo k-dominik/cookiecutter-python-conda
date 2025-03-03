@@ -18,8 +18,8 @@ def main():
     print("removing unnecessary files...")
     if "{{ cookiecutter.use_black }}".lower() == "n":
         remove_black()
-    if "{{ cookiecutter.use_ci }}".lower() == "n":
-        remove_ci()
+    # if "{{ cookiecutter.use_ci }}".lower() == "n":
+    #     remove_ci()
     if "{{ cookiecutter.use_bumpversion }}".lower() == "n":
         remove_versioning()
 
