@@ -6,7 +6,6 @@
   "package_name": "name of the package, must be valid python package name",
   "project_short_description": "Short description",
   "project_initial_version": "0.1.0dev1",
-  "use_ci": "Do you want Travis CI integration? [y]/n",
   "use_black": "Do you want to use black for code formatting? [y]/n",
   "use_bumpversion": "Do you want to use bumpversion? [y]/n"
 }

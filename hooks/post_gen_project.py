@@ -7,7 +7,7 @@ def remove_black():
 
 
 def remove_ci():
-    os.remove(".travis.yml")
+    pass
 
 
 def remove_versioning():

@@ -7,7 +7,6 @@ inspired by [the conda cookiecutter](https://github.com/conda/cookiecutter-conda
 ## Features
 
  - Basic conda recipe found in conda.recipe/meta.yaml
- - CI-integration with for Travis CI
  - `setup.cfg`
  - Versioning with `bumpversion`
 
@@ -29,11 +28,7 @@ bash
 
 ## Features of your new repo:
 
-### Continuous integration (CI)
-
-In order to use Travis CI, you need get the created repo into version control that integrates with Travis CI.
-Information about activating the repo for Travis can be found [here](https://docs.travis-ci.com/user/getting-started/#To-get-started-with-Travis-CI).
-However, first things first:
+First things first:
 
 ```bash
 git init
@@ -68,12 +63,11 @@ The only _special_ thing here is the `release-type` with its `build`. `release-t
 
 There are two different types of dependencies:
 
-1) Package dependencies for deployment: These dependencies should be added to your project's `setup.py` under the requirements section. These packages are automatically added to the conda recipe in `conda-recipe/meta.yaml`. 
+1) Package dependencies for deployment: These dependencies should be added to your project's `pyproject.toml` under the requirements section. These packages are automatically added to the conda recipe in `conda-recipe/meta.yaml`. 
 2) Development dependencies: All packages that are needed for development, should be added to your package's `dev/environment-dev.yaml`.
 
 
 # Todos:
 
- - [ ] make script with entrypoint optional/configurable
- - [ ] Travis CI
+ - [ ] make script with entrypoint optional/configurables
  
