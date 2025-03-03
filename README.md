@@ -7,7 +7,7 @@ inspired by [the conda cookiecutter](https://github.com/conda/cookiecutter-conda
 ## Features
 
  - Basic conda recipe found in conda.recipe/meta.yaml
- - `setup.cfg`
+ - `pyproject.toml`
  - Versioning with `bumpversion`
 
 ## Usage
@@ -24,7 +24,7 @@ In order to start a new Python project using this cookiecutter just type:
 
 ```bash
 cookiecutter https://github.com/k-dominik/cookiecutter-python-conda.git
-bash
+```
 
 ## Features of your new repo:
 
