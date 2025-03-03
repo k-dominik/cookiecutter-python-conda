@@ -1,12 +1,14 @@
 {# raw is for ignoring templating with cookiecutter, leaving it for use with conda-build #}
 {% raw -%}
-{% set data = load_setup_py_data() %}
+{% set pyproject = load_file_data('pyproject.toml') %}
+{% set pproject = pyproject.get('project', {}) %}
+{% set python_requirement = pproject.get('requires-python') %}
 {%- endraw %}
 
 package:
   name: {{ cookiecutter.package_name }}
   {% raw -%}
-  version: {{ data['version'] }}
+  version: {{ pproject.get('version') }}
   {%- endraw %}
 
 source:
@@ -20,10 +22,10 @@ requirements:
     - python
     - pip
   run:
-    - python
     {% raw -%}
-    # dependencies are defined in setup.py
-    {% for dep in data['install_requires'] %}
+    # dependencies defined in pyproject.toml
+    - python{{ python_requirement }}
+    {% for dep in pproject.get('dependencies', []) %}
     - {{ dep.lower() }}
     {% endfor %}
     {%- endraw %}
