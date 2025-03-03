@@ -1,0 +1,37 @@
+name: test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-w-conda-recipe:
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: conda-incubator/setup-miniconda@v3
+        with:
+          auto-update-conda: true
+          environment-file: dev/environment-dev.yaml
+          activate-environment: "cookiecutter-python-conda"
+          channel-priority: strict
+          miniforge-variant: Miniforge3
+      - name: install common dependencies
+        run: conda env create -n test-env --file dev/environment-dev.yaml
+      - name: linux test
+        if: matrix.os == 'ubuntu-latest'
+        shell: bash -l {0}
+        run: pytest tests
+      - name: osx test
+        if: matrix.os == 'macos-latest'
+        shell: bash -l {0}
+        run:  pytest tests
+      - name: windows test
+        if: matrix.os == 'windows-latest'
+        shell: cmd /C CALL {0}
+        run: pytest tests
